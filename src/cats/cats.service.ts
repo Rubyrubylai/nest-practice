@@ -7,7 +7,11 @@ import { Cat } from './interfaces/cats';
 
 @Injectable()  // Service 屬於 抽象 的概念
 export class CatsService {
-    private readonly cats: Cat[] = []
+    private readonly cats: Cat[] = [{
+        name: 'cat',
+        age: 2,
+        breed: 'yes',
+    }]
 
     create(cat: Cat) {
         this.cats.push(cat)
@@ -15,5 +19,9 @@ export class CatsService {
 
     findAll(): Cat[] {
         return this.cats
+    }
+
+    findOne(id: number): Cat {
+        return this.cats[id]
     }
 }
